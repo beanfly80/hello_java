@@ -55,6 +55,7 @@ MariaDB [chat_db]> select * from accounts_tbl;
 
 
 ## TEST
+
 ### server
 ```
 > gradlew bootrun -i
@@ -62,28 +63,32 @@ MariaDB [chat_db]> select * from accounts_tbl;
 
 ### client
 1. http://localhost:65530/
-![](readme/chat_home.png)
-1. http://localhost:65530/account/signup
-![](readme/chat_error.png)
-1. http://localhost:65530/account/signup
-![](readme/chat_signin.png)
-1. 
+  ![](readme/chat_home.png)
+
+1. http://localhost:65530/account/signup : wrong password page
+  ![](readme/chat_error.png)
+
+1. after sign up
+   ```
+	MariaDB [chat_db]> select * from accounts_tbl;
+	+----+----------+--------------------------------------------------------------+------+
+	| id | username | password                                                     | role |
+	+----+----------+--------------------------------------------------------------+------+
+	|  1 | user1    | $2a$10$lfcAIipQJllVcIAIjlVOEOvkqn4t.z0GIzkrJytK1st5RFrkyB6p2 | USER |
+	|                               ....|                                          |      |
+	|  7 | user77   | $2a$10$Sl73zVd.7XAxhe.WpneC5OH18ZDwEpkF0Ho7cr//dexrwEQlGOlf6 | USER |
+	+----+----------+--------------------------------------------------------------+------+
+	```
+
+1. http://localhost:65530/account/signin
+  ![](readme/chat_signin.png)
+
+1. http://localhost:65530/chat
 ![](readme/chat_result.png)
-1. 
-```
-MariaDB [chat_db]> select * from accounts_tbl;
-+----+----------+--------------------------------------------------------------+------+
-| id | username | password                                                     | role |
-+----+----------+--------------------------------------------------------------+------+
-|  1 | user1    | $2a$10$lfcAIipQJllVcIAIjlVOEOvkqn4t.z0GIzkrJytK1st5RFrkyB6p2 | USER |
-|                               ....|                                          |      |
-|  7 | user77   | $2a$10$Sl73zVd.7XAxhe.WpneC5OH18ZDwEpkF0Ho7cr//dexrwEQlGOlf6 | USER |
-+----+----------+--------------------------------------------------------------+------+
-```
 
 ## Deploy war
 ```
-## build bootwar
+## build war
 > .\gradlew bootwar
 
 ## run war
