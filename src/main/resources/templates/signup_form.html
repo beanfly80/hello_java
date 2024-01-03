@@ -1,0 +1,35 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<div layout:fragment="content" class="container my-3">
+    <div class="my-3 border-bottom">
+        <div>
+            <h4>sign up</h4>
+        </div>
+    </div>
+    <form th:action="@{/account/signup}" th:object="${accountCreateForm}" method="post">
+        <th:block th:replace="fragments/form_errors"></th:block>
+        <div class="mb-3">
+            <label for="username" class="form-label">username</label>
+            <input type="text" th:field="*{username}" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="password1" class="form-label">password</label>
+            <input type="password" th:field="*{password1}" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="password2" class="form-label">confirm password</label>
+            <input type="password" th:field="*{password2}" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">role</label>
+            <select id="role">
+                <option value="USER">USER</option>
+                <option value="ADMIN">ADMIN</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
+</div>
+
+</html>

@@ -1,0 +1,29 @@
+html,body {
+    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.footer {
+    height: 20%;
+    text-align : right;
+    margin-top: 0.1cm;
+    font-size: xx-small;
+}
+.msg_username {
+    min-width: calc(1em / 0.7);
+    display: inline-block;
+    border: 1px solid grey;
+    padding: 2px;
+}
+.menu_username {
+    font-style: italic;
+    text-align: right;
+}
+
+#msgArea {
+    height:80%;
+    overflow-y: auto;
+}
+#inputArea {
+    padding:1%;
+}

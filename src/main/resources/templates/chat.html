@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <title>chatroom</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script th:inline="javascript">
+        const username = [[${ #authentication.principal.username }]];
+    </script>
+    <script th:src="@{~/res/chat.js}"></script>
+</head>
+
+<body>
+    <th:block layout:fragment="content">
+        <div id="msgArea" class="col container"></div>
+
+        <div id="inputArea" class="input-group mb-3 well">
+            <input type="text" id="input_msg" class="form-control" aria-label="Recipient's username"
+                aria-describedby="button-addon2" autofocus="autofocus" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" id="button_send">send</button>
+            </div>
+        </div>
+        </div>
+
+        <!--https://getbootstrap.kr/docs/5.0/components/buttons/-->
+        <div class="d-grid gap-2">
+            <button class="btn btn-danger" type="button" id="button_disconnect">disconnect</button>
+        </div>
+
+    </th:block>
+</body>
+
+</html>
